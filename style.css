@@ -7,7 +7,7 @@ body {
 html,
 body {
     height: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .backgroundChange {
@@ -15,6 +15,7 @@ body {
     height: 100%;
     /* background: #ffd000; */
     animation: colorChange 30s infinite;
+    /* transition: background 1s ease; */
     position: absolute;
 }
 
@@ -24,17 +25,20 @@ body {
     background: black;
     color: white;
     font-weight: bold;
-    /* background: #ffd000; */
     position: absolute;
     z-index: 6;
     clip-path: circle(0% at 94.7% 13.5%);
     transition: clip-path 1s ease;
 }
-
 .openMenu {
     clip-path: circle(100%);
 }
-
+/* @keyframes openCircle{
+    100%{
+        width: 60px;
+        height: 60px;
+    }
+} */
 @keyframes colorChange {
     0% {
         background-color: #fe443e;
@@ -125,20 +129,21 @@ nav {
     }
 }
 
-.citrus {
+.tomato img:first-child,.citrus img:first-child,.grape img:first-child,.avocado img:first-child,.flower img:first-child,.text{
+    transition: 1s ease;
+}
+/* .tomato img:nth-child(2),.citrus img:nth-child(2),.grape img:nth-child(2),.avocado img:nth-child(2),.flower img:nth-child(2){
+    transition: 1.2s ease;
+}
+.tomato img:nth-child(3),.citrus img:nth-child(3),.avocado img:nth-child(3),.grape img:nth-child(3){
+    transition: 1.4s ease;
+}
+.citrus img:nth-child(4),.grape img:nth-child(4){
+    transition: 1.6s ease;
+} */
+
+.citrus img,.citrus .text,.grape .text,.grape img,.avocado .text,.avocado img,.flower .text,.flower img{
     transform: translateX(100vw);
-}
-
-.grapes {
-    transform: translateX(200vw);
-}
-
-.avocados {
-    transform: translateX(300vw);
-}
-
-.flowers {
-    transform: translateX(400vw);
 }
 
 .discover {
@@ -215,7 +220,7 @@ nav {
         background: #ff726d;
     }
 
-    98% {
+    97% {
         background: #ff5400;
     }
 
@@ -233,6 +238,22 @@ nav {
     z-index: 7;
 }
 
+.menuCircle{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: 7;
+    background: black;
+    top: 75px;
+    border-radius: 50%;
+    right: 52px;
+    border: 4px solid white;
+    transition: 1s ease;
+    transform: scale(0);
+}
+.openCircle{
+    transform: scale(1);
+}
 #hamburger {
     width: 24px;
     cursor: pointer;
@@ -240,10 +261,9 @@ nav {
     top: 12vh;
     right: 70px;
     height: 27px;
-    overflow: hidden;
-    z-index: 7;
+    overflow-y: hidden;
+    z-index: 8;
 }
-
 #hamburger div {
     width: 24px;
     height: 3px;
@@ -279,7 +299,7 @@ nav {
     position: absolute;
     bottom: 8vh;
     left: 50px;
-    width: 20vw;
+    width: 310px;
     justify-content: space-between;
     font-size: 14px;
     /* font-weight: 600; */
@@ -312,15 +332,15 @@ nav {
 }
 
 .options {
-    width: 11vw;
+    width: 170px;
     justify-content: space-between;
 }
 
 .tomato img,
 .citrus img,
-.grapes img,
-.avocados img,
-.flowers img {
+.grape img,
+.avocado img,
+.flower img {
     position: absolute;
 }
 
@@ -377,61 +397,61 @@ nav {
     right: 220px;
 }
 
-.grapes img:first-child {
+.grape img:first-child {
     width: 510px;
     z-index: 1;
     top: 15vh;
     left: 280px;
 }
 
-.grapes img:nth-child(2) {
+.grape img:nth-child(2) {
     width: 90px;
     z-index: 2;
     bottom: 24vh;
     left: 240px;
 }
 
-.grapes img:nth-child(3) {
+.grape img:nth-child(3) {
     width: 100px;
     z-index: 3;
     bottom: 18vh;
     left: 46%;
 }
 
-.grapes img:nth-child(4) {
+.grape img:nth-child(4) {
     width: 510px;
     z-index: 3;
     bottom: 8vh;
     right: 130px;
 }
 
-.avocados img:first-child {
+.avocado img:first-child {
     width: 330px;
     top: 13vh;
     left: 260px;
     z-index: 1;
 }
 
-.avocados img:nth-child(2) {
+.avocado img:nth-child(2) {
     width: 290px;
     z-index: 3;
     bottom: 4vh;
     left: 200px;
 }
 
-.avocados img:nth-child(3) {
+.avocado img:nth-child(3) {
     width: 320px;
     right: 190px;
     bottom: 3vh;
 }
 
-.flowers img:first-child {
+.flower img:first-child {
     width: 330px;
     top: 18vh;
     left: 320px;
 }
 
-.flowers img:nth-child(2) {
+.flower img:nth-child(2) {
     z-index: 3;
     width: 600px;
     bottom: 4vh;
@@ -466,10 +486,6 @@ nav {
     display: flex;
 }
 
-.showcase{
-    width: 33%;
-}
-
 .menuList {
     font-size: 32px;
 }
@@ -488,10 +504,11 @@ nav {
 }
 
 .showcase {
-    height: 55vh;
-    background: chartreuse;
+    height: 450px;
+    background: #efbe01;
     transition: 1s ease;
     overflow-y: hidden;
+    width: 360px;
 }
 
 .fruits {
@@ -549,85 +566,172 @@ nav {
 }
 
 .showcase img:first-child {
+    width: 134px;
     top: 90px;
     transition: 1s ease;
-    left: 170px;
+    left: 160px;
 }
 
 .showcase img:nth-child(2) {
+    width: 182px;
     top: 220px;
     transition: 1.2s ease;
     left: 0;
 }
 
 .showcase img:nth-child(3) {
+    width: 166px;
     top: 220px;
     transition: 1.4s ease;
     left: 210px;
 }
 
 .showcase img:nth-child(4) {
+    width: 191px;
     top: 60px;
     left: 130px;
     transition: 1s ease;
 }
 
 .showcase img:nth-child(5) {
+    width: 183px;
     top: 210px;
     left: 30px;
     transition: 1.2s ease;
 }
 
 .showcase img:nth-child(6) {
+    width: 84px;
     top: 300px;
     left: 0px;
     transition: 1.4s ease;
 }
 
 .showcase img:nth-child(7) {
+    width: 166px;
     top: 270px;
     left: 220px;
     transition: 1.6s ease;
 }
 
 .showcase img:nth-child(8) {
+    width: 329px;
     top: 70px;
     left: 0px;
     transition: 1s ease;
 }
 
 .showcase img:nth-child(9) {
+    width: 321px;
     top: 130px;
     left: 60px;
     transition: 1.2s ease;
 }
 
 .showcase img:nth-child(10) {
+    width: 205px;
     top: 70px;
     left: 50px;
     transition: 1s ease;
 }
 
 .showcase img:nth-child(11) {
+    width: 177px;
     top: 210px;
     left: 60px;
     transition: 1.2s ease;
 }
 
 .showcase img:nth-child(12) {
+    width: 199px;
     top: 240px;
     left: 190px;
     transition: 1.4s ease;
 }
 
 .showcase img:nth-child(13) {
+    width: 202px;
     top: 100px;
     left: 120px;
     transition: 1s ease;
 }
 
 .showcase img:nth-child(14) {
+    width:357px;
     top: 240px;
     left: 20px;
     transition: 1.2s ease;
+}
+.showcase img:nth-child(15) {
+    width: 222px;
+    top: 150px;
+    left: 20px;
+    transition: 1s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(16) {
+    width: 235px;
+    top: 135px;
+    left: 155px;
+    transition: 1.1s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(17){
+    width: 122px;
+    top: 265px;
+    left: -15px;
+    transition: 1.2s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(18){
+    width: 130px;
+    top: 290px;
+    left: 40px;
+    transition: 1.3s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(19){
+    width: 87px;
+    top:148px;
+    left: 155px;
+    transition: 1.4s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(20){
+    width: 199px;
+    top: 270px;
+    left: 90px;
+    transition: 1.5s ease;
+    transform: translateY(0);
+}
+.showcase img:nth-child(21){
+    width: 422px;
+    left: -20px;
+    z-index: 8;
+    top: 150px;
+    transition: 1s ease;
+}
+.showcase img:nth-child(22){
+    width: 231px;
+    top: 60px;
+    left: 170px;
+    transition: 1s ease;
+}
+.showcase img:nth-child(23){
+    width: 263px;
+    top: 125px;
+    left: -15px;
+    transition: 1.2s ease;
+}
+.showcase img:nth-child(24){
+    width: 290px;
+    top: 230px;
+    left: 70px;
+    transition: 1.4s ease;
+}
+.showcase img:nth-child(25){
+    width: 390px;
+    top: 150px;
+    left: -10px;
+    transition: 1s ease;
 }

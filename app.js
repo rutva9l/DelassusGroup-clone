@@ -1,97 +1,242 @@
 const hamburger = document.getElementById("hamburger");
 const hamburgerDiv = document.querySelectorAll("#hamburger div");
 const menuBack = document.querySelector(".menuBackground");
-const tomatoes = document.getElementById("tomatoes");
-const oranges = document.getElementById("oranges");
-const grapes = document.getElementById("grapes");
-const avocados = document.getElementById("avocados");
-const flowers = document.getElementById("flowers");
 const showcase = document.querySelector(".showcase");
 const image = document.querySelectorAll(".showcase img");
 const menuContainer = document.querySelector(".menuContainer");
 const dash = document.querySelectorAll(".dash");
 const moveDash = document.querySelectorAll(".moveDash");
+const menuCircle = document.querySelector(".menuCircle");
 
-let count=0;
-let flag=false;
-window.onload=function(){
-    runBar();
+let count = 0;
+let flag = false;
+let flag1 = false;
+let count1 = 0;
+let prev, last, number;
+let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
+window.onload = function () {
+    runBarSlide();
 }
-function runBar(){
-    if(flag==true){
+// $(".total").click(function(e){
+//     number=e.target.id;
+//     count1=number;
+//     // count=number;
+// })
+function runBarSlide() {
+    if (count1 > 0) {
+        prev = count1 - 1;
+        last = prev - 1;
+        $("." + prev).children().css({
+            "transform": "translateX(-1538px)",
+            "transition": "1s ease"
+        });
+        $("." + last).children().css({
+            "transition": "none",
+            "transform": "translateX(1538px)"
+        });
+        if (count1 == 5) {
+            count1 = 0;
+            $(".4").children().css({
+                "transform": "translateX(-1538px)",
+                "transition": "1s ease"
+            });
+        }
+    }
+    // $(".backgroundChange").css("background",colorArray[count1]);
+    $("." + count1).children("img").css({
+        "transform": "translateX(0)",
+        "transition": "1s ease"
+    });
+    $("." + count1).children("div").css({
+        "transform": "translateX(-50%)",
+        "transition": "1s ease"
+    });
+    if (flag == true) {
         dash[4].classList.remove("show");
     }
-    if(count>0){
-        dash[count-1].classList.remove("show");
+    if (count > 0) {
+        dash[count - 1].classList.remove("show");
     }
     dash[count].classList.add("show");
     count++
-    if(count==5){
-        count=0;
-        flag=true;
+    if (count == 5) {
+        count = 0;
+        flag = true;
     }
+    count1++
 }
-setInterval(runBar,6000)
+setInterval(runBarSlide, 6000)
 hamburger.addEventListener("click", function () {
     menuContainer.classList.toggle("hide");
     menuBack.classList.toggle("openMenu");
     hamburger.classList.toggle("open");
-    for(let i=3;i<6;i++){
+    menuCircle.classList.toggle("openCircle");
+    for (let i = 3; i < 6; i++) {
         hamburgerDiv[i].classList.toggle("none");
     }
 })
-tomatoes.addEventListener("mouseover", function () {
-    showcase.style.background = "#fe443e"
-    for (let i = 0; i < 3; i++) {
-        image[i].style.transform = "translateY(0)";
-    }
+$("#tomatoes").mouseover(function () {
+    showcase.style.background = "#fe443e";
+    fruitsPop(0, 3);
+    fruitsGone(14, 20);
 })
-tomatoes.addEventListener("mouseout", function () {
-    for (let i = 0; i < 3; i++) {
-        image[i].style.transform = "translateY(490px)";
-    }
+$("#tomatoes").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(0, 3);
+    fruitsPop(14, 20);
 })
-oranges.addEventListener("mouseover", function () {
-    showcase.style.background = "#ff6700"
-    for (let i = 3; i < 7; i++) {
-        image[i].style.transform = "translateY(0)";
-    }
+$("#oranges").mouseover(function () {
+    showcase.style.background = "#ff6700";
+    fruitsPop(3, 7);
+    fruitsGone(14, 20);
 })
-oranges.addEventListener("mouseout", function () {
-    for (let i = 3; i < 7; i++) {
-        image[i].style.transform = "translateY(490px)";
-    }
+$("#oranges").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(3, 7);
+    fruitsPop(14, 20);
 })
-grapes.addEventListener("mouseover", function () {
+$("#grapes").mouseover(function () {
     showcase.style.background = "#ff6d8b";
-    for (let i = 7; i < 9; i++) {
-        image[i].style.transform = "translateY(0)";
-    }
+    fruitsPop(7, 9);
+    fruitsGone(14, 20);
 })
-grapes.addEventListener("mouseout", function () {
-    for (let i = 7; i < 9; i++) {
-        image[i].style.transform = "translateY(490px)";
-    }
+$("#grapes").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(7, 9);
+    fruitsPop(14, 20);
 })
-avocados.addEventListener("mouseover", function () {
+$("#avocados").mouseover(function () {
     showcase.style.background = "#6dd5bc";
-    for (let i = 9; i < 12; i++) {
-        image[i].style.transform = "translateY(0)";
-    }
+    fruitsPop(9, 12);
+    fruitsGone(14, 20);
 })
-avocados.addEventListener("mouseout", function () {
-    for (let i = 9; i < 12; i++) {
-        image[i].style.transform = "translateY(490px)";
-    }
+$("#avocados").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(9, 12);
+    fruitsPop(14, 20);
 })
-flowers.addEventListener("mouseover", function () {
+$("#flowers").mouseover(function () {
     showcase.style.background = "#ffd000";
-    for (let i = 12; i < 14; i++) {
-        image[i].style.transform = "translateY(0)";
-    }
+    fruitsPop(12, 14);
+    fruitsGone(14, 20);
 })
-flowers.addEventListener("mouseout", function () {
-    for (let i = 12; i < 14; i++) {
-        image[i].style.transform = "translateY(490px)";
+$("#flowers").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(12, 14);
+    fruitsPop(14, 20);
+})
+$("#about").mouseover(function () {
+    showcase.style.background = "#e8590d";
+    fruitsPop(20, 21);
+    fruitsGone(14, 20);
+})
+$("#about").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(20, 21);
+    fruitsPop(14, 20);
+})
+$("#rd").mouseover(function () {
+    showcase.style.background = "#dc3f69";
+    fruitsPop(21, 24);
+    fruitsGone(14, 20);
+})
+$("#rd").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(21, 24);
+    fruitsPop(14, 20);
+})
+$("#csr").mouseover(function () {
+    showcase.style.background = "#fa7666";
+    fruitsPop(24, 25);
+    fruitsGone(14, 20);
+})
+$("#csr").mouseout(function () {
+    showcase.style.background = "#efbe01";
+    fruitsGone(24, 25);
+    fruitsPop(14, 20);
+})
+
+$(".menuCircle").mouseover(function () {
+    $(".menuCircle").css("background", "white");
+    $("#hamburger").css("transform", "rotate(1440deg)");
+    $("#hamburger div").css("background", "black");
+})
+$(".menuCircle").mouseout(function () {
+    $(".menuCircle").css("background", "black");
+    // $("#hamburger").css("transform","rotate(1440deg)");
+    $("#hamburger div").css("background", "white");
+})
+
+function fruitsPop(a, b) {
+    for (let j = a; j < b; j++) {
+        image[j].style.transform = "translateY(0)";
+    }
+}
+
+function fruitsGone(a, b) {
+    for (let j = a; j < b; j++) {
+        image[j].style.transform = "translateY(490px)";
+    }
+}
+// $(".tomato").mouseover(function (event) {
+    // if (count1 == 1) {
+    //     let x = event.clientX;
+    //     let y = event.clientY;
+    //     $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
+    // }
+// })
+// $(".citrus").mouseover(function (event) {
+    // if (count1 == 2) {
+    //     let x = event.clientX;
+    //     let y = event.clientY;
+    //     $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    // }
+// })
+// $(".grape").mouseover(function (event) {
+    // if (count1 == 3) {
+    //     let x = event.clientX;
+    //     let y = event.clientY;
+    //     $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    // }
+// })
+// $(".avocado").mouseover(function (event) {
+    // if (count1 == 4) {
+    //     let x = event.clientX;
+    //     let y = event.clientY;
+    //     $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    // }
+// })
+// $(".flower").mouseover(function (event) {
+    // if (count1 == 5) {
+    //     let x = event.clientX;
+    //     let y = event.clientY;
+    //     $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    // }
+
+document.body.addEventListener("mouseover",function(event){
+    if (count1 == 1) {
+        let x = event.clientX;
+        let y = event.clientY;
+        $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
+    }
+    if (count1 == 2) {
+        let x = event.clientX;
+        let y = event.clientY;
+        $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    }
+    if (count1 == 3) {
+        let x = event.clientX;
+        let y = event.clientY;
+        $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    }
+    if (count1 == 4) {
+        let x = event.clientX;
+        let y = event.clientY;
+        $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
+    }
+    if (count1 == 5) {
+        let x = event.clientX;
+        let y = event.clientY;
+        $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
 })
