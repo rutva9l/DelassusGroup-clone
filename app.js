@@ -76,6 +76,8 @@ hamburger.addEventListener("click", function () {
         hamburgerDiv[i].classList.toggle("none");
     }
 })
+
+//popping fruits in menu page
 $("#tomatoes").mouseover(function () {
     showcase.style.background = "#fe443e";
     fruitsPop(0, 3);
@@ -182,6 +184,8 @@ function second(){
     if(s==30){s=0}
 }
 setInterval(second,1000);
+
+// moving fruits on hover
 document.body.addEventListener("mouseover",function(event){
     if (count1 == 1 && s!=0) {
         let x = event.clientX;
