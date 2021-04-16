@@ -17,6 +17,7 @@ let prev, last;
 let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
 window.onload = function () {
     runBarSlide();
+    second();
 }
 function runBarSlide() {
     if (count1 > 0) {
