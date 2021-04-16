@@ -251,6 +251,16 @@ nav {
     transition: 1s ease;
     transform: scale(0);
 }
+.menuCircle i{
+    margin: 23px 24px;
+    font-size: 17px;
+}
+.menuCircle:hover{
+    background: white;
+}
+.menuCircle:hover i{
+    color: black;
+}
 .openCircle{
     transform: scale(1);
 }
@@ -263,6 +273,7 @@ nav {
     height: 27px;
     overflow-y: hidden;
     z-index: 8;
+    /* display: none; */
 }
 #hamburger div {
     width: 24px;
@@ -275,6 +286,9 @@ nav {
 #hamburger:hover div {
     transform: translateY(-25px);
 }
+/* #hamburger.open{
+    opacity: 0;
+} */
 #hamburger div:nth-child(1) {
     transform-origin: left center;
 }
@@ -282,7 +296,10 @@ nav {
 #hamburger div:nth-child(3) {
     transform-origin: left center;
 }
-  
+#hamburger.open:hover{
+    transform-origin:center;
+    transform:rotate(1440deg);
+  } 
 #hamburger.open div:nth-child(1) {
     transform: rotate(45deg);
 }

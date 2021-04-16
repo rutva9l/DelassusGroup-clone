@@ -9,23 +9,19 @@ const moveDash = document.querySelectorAll(".moveDash");
 const menuCircle = document.querySelector(".menuCircle");
 
 let count = 0;
+let s=0;
 let flag = false;
 let flag1 = false;
 let count1 = 0;
-let prev, last, number;
+let prev, last;
 let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
 window.onload = function () {
     runBarSlide();
 }
-// $(".total").click(function(e){
-//     number=e.target.id;
-//     count1=number;
-//     // count=number;
-// })
 function runBarSlide() {
     if (count1 > 0) {
         prev = count1 - 1;
-        last = prev - 1;
+        last = count1 - 2;
         $("." + prev).children().css({
             "transform": "translateX(-1538px)",
             "transition": "1s ease"
@@ -43,6 +39,11 @@ function runBarSlide() {
         }
     }
     // $(".backgroundChange").css("background",colorArray[count1]);
+    // $(".total").click(function(e){
+    //     let number=e.target.id;
+    //     console.log(number);
+    //     count1=number;
+    // })
     $("." + count1).children("img").css({
         "transform": "translateX(0)",
         "transition": "1s ease"
@@ -158,12 +159,10 @@ $("#csr").mouseout(function () {
 
 $(".menuCircle").mouseover(function () {
     $(".menuCircle").css("background", "white");
-    $("#hamburger").css("transform", "rotate(1440deg)");
     $("#hamburger div").css("background", "black");
 })
 $(".menuCircle").mouseout(function () {
     $(".menuCircle").css("background", "black");
-    // $("#hamburger").css("transform","rotate(1440deg)");
     $("#hamburger div").css("background", "white");
 })
 
@@ -178,63 +177,33 @@ function fruitsGone(a, b) {
         image[j].style.transform = "translateY(490px)";
     }
 }
-// $(".tomato").mouseover(function (event) {
-    // if (count1 == 1) {
-    //     let x = event.clientX;
-    //     let y = event.clientY;
-    //     $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
-    // }
-// })
-// $(".citrus").mouseover(function (event) {
-    // if (count1 == 2) {
-    //     let x = event.clientX;
-    //     let y = event.clientY;
-    //     $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
-    // }
-// })
-// $(".grape").mouseover(function (event) {
-    // if (count1 == 3) {
-    //     let x = event.clientX;
-    //     let y = event.clientY;
-    //     $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
-    // }
-// })
-// $(".avocado").mouseover(function (event) {
-    // if (count1 == 4) {
-    //     let x = event.clientX;
-    //     let y = event.clientY;
-    //     $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
-    // }
-// })
-// $(".flower").mouseover(function (event) {
-    // if (count1 == 5) {
-    //     let x = event.clientX;
-    //     let y = event.clientY;
-    //     $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
-    // }
-
+function second(){
+    s++;
+    if(s==30){s=0}
+}
+setInterval(second,1000);
 document.body.addEventListener("mouseover",function(event){
-    if (count1 == 1) {
+    if (count1 == 1 && s!=0) {
         let x = event.clientX;
         let y = event.clientY;
         $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
     }
-    if (count1 == 2) {
+    if (count1 == 2 && s!=6) {
         let x = event.clientX;
         let y = event.clientY;
         $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 3) {
+    if (count1 == 3 && s!=12) {
         let x = event.clientX;
         let y = event.clientY;
         $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 4) {
+    if (count1 == 4 && s!=18) {
         let x = event.clientX;
         let y = event.clientY;
         $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 5) {
+    if (count1 == 5 && s!=24) {
         let x = event.clientX;
         let y = event.clientY;
         $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
