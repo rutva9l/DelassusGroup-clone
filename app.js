@@ -16,8 +16,8 @@ let count1 = 0;
 let prev, last;
 let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
 window.onload = function () {
-    runBarSlide();
     second();
+    runBarSlide();
 }
 function runBarSlide() {
     if (count1 > 0) {
@@ -188,27 +188,27 @@ setInterval(second,1000);
 
 // moving fruits on hover
 document.body.addEventListener("mouseover",function(event){
-    if (count1 == 1 && s!=0) {
+    if (count1 == 1 && s!=0 && s!=1) {
         let x = event.clientX;
         let y = event.clientY;
         $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
     }
-    if (count1 == 2 && s!=6) {
+    if (count1 == 2 && s!=6 && s!=7) {
         let x = event.clientX;
         let y = event.clientY;
         $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 3 && s!=12) {
+    if (count1 == 3 && s!=12 && s!=13) {
         let x = event.clientX;
         let y = event.clientY;
         $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 4 && s!=18) {
+    if (count1 == 4 && s!=18 && s!=19) {
         let x = event.clientX;
         let y = event.clientY;
         $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 5 && s!=24) {
+    if (count1 == 5 && s!=24 && s!=25) {
         let x = event.clientX;
         let y = event.clientY;
         $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
