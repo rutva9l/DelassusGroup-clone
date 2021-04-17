@@ -15,7 +15,7 @@ body {
     height: 100%;
     /* background: #ffd000; */
 /*     animation: colorChange 30s infinite; */
-    transition: background 1s ease;
+    transition: background 1s ease-in-out;
     position: absolute;
 }
 
