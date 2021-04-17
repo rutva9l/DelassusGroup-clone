@@ -1,5 +1,4 @@
 const hamburger = document.getElementById("hamburger");
-const hamburgerDiv = document.querySelectorAll("#hamburger div");
 const menuBack = document.querySelector(".menuBackground");
 const showcase = document.querySelector(".showcase");
 const image = document.querySelectorAll(".showcase img");
@@ -73,9 +72,6 @@ hamburger.addEventListener("click", function () {
     menuBack.classList.toggle("openMenu");
     hamburger.classList.toggle("open");
     menuCircle.classList.toggle("openCircle");
-    for (let i = 3; i < 6; i++) {
-        hamburgerDiv[i].classList.toggle("none");
-    }
 })
 
 //popping fruits in menu page
@@ -162,11 +158,11 @@ $("#csr").mouseout(function () {
 
 $(".menuCircle").mouseover(function () {
     $(".menuCircle").css("background", "white");
-    $("#hamburger div").css("background", "black");
+    $(".line").css("background", "black");
 })
 $(".menuCircle").mouseout(function () {
     $(".menuCircle").css("background", "black");
-    $("#hamburger div").css("background", "white");
+    $(".line").css("background", "white");
 })
 
 function fruitsPop(a, b) {
