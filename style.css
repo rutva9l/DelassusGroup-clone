@@ -532,7 +532,7 @@ nav {
     display: flex;
     align-items: center;
     font-size: 18px;
-    padding: 13px 0;
+    padding: 0.845vw 0;
     color: #ffffff80;
     transition: 0.5s ease;
 }
@@ -552,7 +552,7 @@ nav {
 }
 
 .fruitImg {
-    width: 65px;
+    width: 4.22vw;
     margin-right: 50px;
     position: relative;
 }
