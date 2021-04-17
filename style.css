@@ -356,7 +356,7 @@ nav {
 .text {
     position: absolute;
     z-index: 2;
-    font-size: 9.75vw;
+    font-size: 150px;
     left: 50%;
     transform: translateX(-50%);
 }
