@@ -79,13 +79,13 @@ nav {
 
 .navList {
     list-style-type: none;
-    font-size: 20px;
-    margin-right: 80px;
+    font-size: 1.4vw;
+    margin-right: 5.2vw;
 }
 
 .total {
     cursor: pointer;
-    padding: 0 15px;
+    padding: 0 1vw;
     opacity: 0.6;
     color: white;
 }
@@ -150,7 +150,7 @@ nav {
     width: 14vw;
     text-align: center;
     position: relative;
-    border-radius: 40px;
+    border-radius: 2.6vw;
     padding: 1.5vw 0;
     box-shadow: 0.3125em 0.3125em 0.625em 0 rgb(58 1 4 / 15%);
     cursor: pointer;
@@ -170,7 +170,7 @@ nav {
     position: relative;
 }
 .discover:hover i{
-    transform: translateX(35px);
+    transform: translateX(2vw);
 }
 
 .discover::before {
@@ -353,6 +353,14 @@ nav {
     justify-content: space-between;
 }
 
+.text {
+    position: absolute;
+    z-index: 2;
+    font-size: 9.75vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .tomato img,
 .citrus img,
 .grape img,
@@ -380,14 +388,6 @@ nav {
     z-index: 3;
     bottom: 2vh;
     right: 12.3vw;
-}
-
-.text {
-    position: absolute;
-    z-index: 2;
-    font-size: 150px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .citrus img:first-child {
