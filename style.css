@@ -504,7 +504,8 @@ nav {
 }
 
 .menuList {
-    font-size: 32px;
+    font-size: 2vw;
+    letter-spacing:1px;
 }
 
 .menuList div {
@@ -531,7 +532,7 @@ nav {
 .fruits {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 1.2vw;
     padding: 0.845vw 0;
     color: #ffffff80;
     transition: 0.5s ease;
@@ -552,8 +553,8 @@ nav {
 }
 
 .fruitImg {
-    width: 4.22vw;
-    margin-right: 50px;
+    width: 65px;
+    margin-right: 3.25vw;
     position: relative;
 }
 
