@@ -509,11 +509,11 @@ nav {
 }
 
 .menuList div {
-    padding: 31px 0;
+    padding: 2vw 0;
     text-align: left;
     color: #ffffff80;
     transition: 0.5s ease;
-    margin: 0 150px;
+    margin: 0 9.75vw;
 }
 
 .menuList div:hover,
@@ -522,7 +522,7 @@ nav {
 }
 
 .showcase {
-    height: 450px;
+    height: 56.46vh;
     background: #efbe01;
     transition: 1s ease;
     overflow-y: hidden;
