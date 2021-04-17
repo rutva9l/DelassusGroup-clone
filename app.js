@@ -39,7 +39,7 @@ function runBarSlide() {
             });
         }
     }
-    // $(".backgroundChange").css("background",colorArray[count1]);
+    $(".backgroundChange").css("background",colorArray[count1]);
     // $(".total").click(function(e){
     //     let number=e.target.id;
     //     console.log(number);
