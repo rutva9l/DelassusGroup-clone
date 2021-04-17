@@ -264,54 +264,51 @@ nav {
 .openCircle{
     transform: scale(1);
 }
+
 #hamburger {
-    width: 24px;
     cursor: pointer;
+    display: inline-block;
     position: absolute;
     top: 12vh;
-    right: 70px;
+    right: 4.8vw;
     height: 27px;
     overflow-y: hidden;
     z-index: 8;
-    /* display: none; */
+    transition: all 0.7s ease;
 }
-#hamburger div {
+
+#hamburger.open:hover {
+    transform: rotate(360deg);
+}
+
+.line {
+    display: block;
+    background: white;
     width: 24px;
     height: 3px;
     margin: 5px 0;
-    background: white;
-    transition: 0.5s linear;
+    transition: all 0.7s ease;
 }
 
-#hamburger:hover div {
+#hamburger:hover .line {
     transform: translateY(-25px);
 }
-/* #hamburger.open{
-    opacity: 0;
-} */
-#hamburger div:nth-child(1) {
-    transform-origin: left center;
+#hamburger.open .line:nth-last-child(-n+3){
+    display: none;
 }
-  
-#hamburger div:nth-child(3) {
-    transform-origin: left center;
+
+#hamburger.open .line:nth-child(1) {
+    transform: translateY(8px) rotateZ(45deg);
 }
-#hamburger.open:hover{
-    transform-origin:center;
-    transform:rotate(1440deg);
-  } 
-#hamburger.open div:nth-child(1) {
-    transform: rotate(45deg);
+
+#hamburger.open .line:nth-child(3) {
+    transform: translateY(-8px) rotateZ(-45deg);
 }
-  
-#hamburger.open div:nth-child(2) {
-    width: 0%;
-    opacity: 0;
+
+#hamburger.open .line:nth-child(2) {
+    width: 0;
 }
-  
-#hamburger.open div:nth-child(3) {
-    transform: rotate(-45deg);
-}
+
 .details {
     position: absolute;
     bottom: 8vh;
