@@ -7,21 +7,24 @@ const dash = document.querySelectorAll(".dash");
 const moveDash = document.querySelectorAll(".moveDash");
 const menuCircle = document.querySelector(".menuCircle");
 
-let count = 0;
 let s=0;
 let flag = false;
-let flag1 = false;
-let count1 = 0;
+let count = 0;
 let prev, last;
 let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
+let colorArray2=["#ce0a1f","#ffb700","#870a31","#ff726d","#ff5400"];
 window.onload = function () {
     second();
     runBarSlide();
 }
 function runBarSlide() {
-    if (count1 > 0) {
-        prev = count1 - 1;
-        last = count1 - 2;
+    if (flag == true) {
+        dash[4].classList.remove("show");
+        flag=false;
+    }
+    if (count > 0) {
+        prev = count - 1;
+        last = count - 2;
         $("." + prev).children().css({
             "transform": "translateX(-1538px)",
             "transition": "1s ease"
@@ -30,41 +33,34 @@ function runBarSlide() {
             "transition": "none",
             "transform": "translateX(1538px)"
         });
-        if (count1 == 5) {
-            count1 = 0;
+        if (count == 5) {
+            count = 0;
             $(".4").children().css({
                 "transform": "translateX(-1538px)",
                 "transition": "1s ease"
             });
         }
+        flag = true;
     }
-    $(".backgroundChange").css("background",colorArray[count1]);
+    $(".backgroundChange").css("background",colorArray[count]);
     // $(".total").click(function(e){
     //     let number=e.target.id;
     //     console.log(number);
-    //     count1=number;
+    //     count=number;
     // })
-    $("." + count1).children("img").css({
+    $("." + count).children("img").css({
         "transform": "translateX(0)",
         "transition": "1s ease"
     });
-    $("." + count1).children("div").css({
+    $("." + count).children("div").css({
         "transform": "translateX(-50%)",
         "transition": "1s ease"
     });
-    if (flag == true) {
-        dash[4].classList.remove("show");
-    }
     if (count > 0) {
         dash[count - 1].classList.remove("show");
     }
     dash[count].classList.add("show");
     count++
-    if (count == 5) {
-        count = 0;
-        flag = true;
-    }
-    count1++
 }
 setInterval(runBarSlide, 6000)
 hamburger.addEventListener("click", function () {
@@ -184,27 +180,27 @@ setInterval(second,1000);
 
 // moving fruits on hover
 document.body.addEventListener("mouseover",function(event){
-    if (count1 == 1 && s!=0 && s!=1) {
+    if (count == 1 && s!=0 && s!=1) {
         let x = event.clientX;
         let y = event.clientY;
         $(".tomato img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)");
     }
-    if (count1 == 2 && s!=6 && s!=7) {
+    if (count == 2 && s!=6 && s!=7) {
         let x = event.clientX;
         let y = event.clientY;
         $(".citrus img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 3 && s!=12 && s!=13) {
+    if (count == 3 && s!=12 && s!=13) {
         let x = event.clientX;
         let y = event.clientY;
         $(".grape img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 4 && s!=18 && s!=19) {
+    if (count == 4 && s!=18 && s!=19) {
         let x = event.clientX;
         let y = event.clientY;
         $(".avocado img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
     }
-    if (count1 == 5 && s!=24 && s!=25) {
+    if (count == 5 && s!=24 && s!=25) {
         let x = event.clientX;
         let y = event.clientY;
         $(".flower img").css("transform", "translateX(" + 0.02 * x + "px) translateY(" + 0.02 * y + "px)")
