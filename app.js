@@ -8,7 +8,6 @@ const moveDash = document.querySelectorAll(".moveDash");
 const menuCircle = document.querySelector(".menuCircle");
 
 let s=0;
-let flag = false;
 let count = 0;
 let prev, last;
 let colorArray=["#fe443e","#ff6700","#ff6d8b","#6dd5bc","#ffd000"];
@@ -18,10 +17,6 @@ window.onload = function () {
     runBarSlide();
 }
 function runBarSlide() {
-    if (flag == true) {
-        dash[4].classList.remove("show");
-        flag=false;
-    }
     if (count > 0) {
         prev = count - 1;
         last = count - 2;
@@ -39,8 +34,8 @@ function runBarSlide() {
                 "transform": "translateX(-1538px)",
                 "transition": "1s ease"
             });
+            dash[4].classList.remove("show");
         }
-        flag = true;
     }
     $(".backgroundChange").css("background",colorArray[count]);
     // $(".total").click(function(e){
