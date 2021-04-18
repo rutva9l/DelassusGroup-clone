@@ -15,6 +15,8 @@ let colorArray2=["#ce0a1f","#ffb700","#870a31","#ff726d","#ff5400"];
 window.onload = function () {
     second();
     runBarSlide();
+     $(".navList").addClass("load");
+     $(".discover").addClass("load");
 }
 function runBarSlide() {
     if (count > 0) {
