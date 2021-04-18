@@ -153,7 +153,7 @@ nav {
     transition: 1.6s ease;
 } */
 
-.citrus img,.citrus .text,.grape .text,.grape img,.avocado .text,.avocado img,.flower .text,.flower img{
+.tomato img,.tomato .text,.citrus img,.citrus .text,.grape .text,.grape img,.avocado .text,.avocado img,.flower .text,.flower img{
     transform: translateX(100vw);
 }
 
